@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Кликер</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Игровой экран -->
+        <div id="game-screen">
+            <div id="click-area">
+                <img id="falling-image" src="" alt="click image">
+                <!-- Счётчик скрыт -->
+                <div id="completion-message" style="display: none;">
+                    <div class="message-content">
+                        <div id="completion-text"></div>
+                        <button id="next-button" class="game-btn">Дальше</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Админка (скрыта) -->
+        <div id="admin-screen" style="display: none;">
+            <div id="admin-login">
+                <h2>Админ панель</h2>
+                <input type="password" id="password-input" placeholder="Пароль">
+                <button id="login-btn" class="admin-btn">Войти</button>
+            </div>
+            <div id="admin-panel" style="display: none;">
+                <h3>Управление картинками</h3>
+                <div id="add-image-section">
+                    <input type="file" id="image-upload" accept="image/*">
+                    <button id="select-image-btn" class="admin-btn">📁 Выбрать фото</button>
+                </div>
+                <div id="images-list">
+                    <h4>Список картинок:</h4>
+                    <ul id="image-items"></ul>
+                </div>
+                <button id="exit-admin-btn" class="admin-btn exit">🚪 Выйти</button>
+            </div>
+        </div>
+
+        <!-- Стартовое меню -->
+        <div id="start-menu">
+            <h1>Clicker Game</h1>
+            <button id="start-game-btn" class="game-btn">▶ Играть</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
