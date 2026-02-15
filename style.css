@@ -61,7 +61,7 @@ body {
     top: -100%;
 }
 
-/* Счётчик ПОЛНОСТЬЮ СКРЫТ */
+/* Счётчик скрыт */
 #click-stats {
     display: none !important;
 }
@@ -296,3 +296,144 @@ body {
     padding: 15px 40px;
     font-size: 1.3rem;
 }
+
+/* ===== АДАПТАЦИЯ ПОД ВСЕ УСТРОЙСТВА ===== */
+
+/* Для очень маленьких телефонов (до 320px) */
+@media screen and (max-width: 320px) {
+    #start-menu h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .game-btn {
+        padding: 14px 30px;
+        font-size: 1.2rem;
+        max-width: 220px;
+    }
+    
+    #in-game-menu-btn {
+        padding: 8px 16px;
+        font-size: 1rem;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .message-content {
+        padding: 20px;
+    }
+    
+    #completion-text {
+        font-size: 1.2rem;
+    }
+}
+
+/* Для средних телефонов (321px - 375px) */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    #start-menu h1 {
+        font-size: 2.2rem;
+    }
+    
+    .game-btn {
+        padding: 16px 35px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Для больших телефонов (376px - 425px) */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    #start-menu h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Для планшетов (426px - 768px) */
+@media screen and (min-width: 426px) and (max-width: 768px) {
+    #game-container {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    #start-menu h1 {
+        font-size: 3rem;
+    }
+    
+    .game-btn {
+        font-size: 1.6rem;
+        max-width: 320px;
+    }
+}
+
+/* Для больших планшетов и маленьких ноутбуков (769px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #game-container {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    #start-menu h1 {
+        font-size: 3.5rem;
+    }
+    
+    .game-btn {
+        font-size: 1.8rem;
+        max-width: 350px;
+    }
+}
+
+/* Для десктопов (1025px и больше) */
+@media screen and (min-width: 1025px) {
+    #game-container {
+        max-width: 400px;
+        max-height: 800px;
+        margin: 0 auto;
+        border-radius: 32px;
+    }
+    
+    #start-menu h1 {
+        font-size: 3rem;
+    }
+    
+    .game-btn {
+        font-size: 1.5rem;
+    }
+}
+
+/* Альбомная ориентация на телефонах */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    #start-menu h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .game-btn {
+        padding: 10px 25px;
+        font-size: 1.1rem;
+        margin: 5px 0;
+    }
+    
+    #in-game-menu-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Для устройств с большими вырезами (notch) */
+@supports (padding: max(0px)) {
+    #in-game-menu-btn {
+        top: max(20px, env(safe-area-inset-top));
+        right: max(20px, env(safe-area-inset-right));
+    }
+    
+    #admin-screen {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+    }
+}
+
+/* Для темной темы системной */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: #000;
+    }
+    }
