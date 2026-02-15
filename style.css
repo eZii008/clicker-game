@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    background: #000;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: manipulation;
+}
+
+#game-container {
+    width: 100%;
+    height: 100%;
+    background: #0b0b15;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Игровой экран */
+#game-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #13131f;
+    overflow: hidden;
+    touch-action: none;
+}
+
+#click-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+#falling-image {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    display: block;
+    top: -100%;
+}
+
+/* Счётчик ПОЛНОСТЬЮ СКРЫТ */
+#click-stats {
+    display: none !important;
+}
+
+#completion-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.message-content {
+    background: #2a2a3b;
+    padding: 30px;
+    border-radius: 30px;
+    text-align: center;
+    color: white;
+    border: 3px solid #6a5acd;
+    width: 80%;
+    max-width: 300px;
+}
+
+#completion-text {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: #ffd700;
+}
+
+/* Кнопка меню в игре */
+#in-game-menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 30;
+    padding: 12px 20px;
+    background: rgba(90, 70, 180, 0.9);
+    color: white;
+    border: 2px solid #ffd700;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#in-game-menu-btn:active {
+    transform: scale(0.95);
+    background: rgba(110, 90, 200, 0.9);
+}
+
+/* Админка */
+#admin-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1a1a2e;
+    z-index: 100;
+    padding: 20px;
+    color: white;
+    overflow-y: auto;
+}
+
+#admin-login, #admin-panel {
+    background: #16213e;
+    padding: 30px 20px;
+    border-radius: 30px;
+    border: 1px solid #4e4e6e;
+    margin-top: 20px;
+}
+
+#admin-login h2, #admin-panel h3 {
+    margin-bottom: 25px;
+    color: #a688ff;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+#password-input {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 20px;
+    border: 2px solid #3d3d5c;
+    border-radius: 50px;
+    background: #0f0f1f;
+    color: white;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.admin-btn {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
+    background: #4a3f8e;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.admin-btn:active {
+    transform: scale(0.98);
+    background: #5f4fb0;
+}
+
+.admin-btn.exit {
+    background: #8b3a5c;
+}
+
+#select-image-btn {
+    background: #2d5a8c;
+}
+
+#image-upload {
+    display: none;
+}
+
+#images-list {
+    margin-top: 25px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+#image-items {
+    list-style: none;
+    margin-top: 15px;
+}
+
+#image-items li {
+    background: #1e1e30;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #4a4a6a;
+}
+
+.image-preview {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.image-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+}
+
+.image-name {
+    font-size: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.delete-image {
+    background: #c43e3e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Стартовое меню */
+#start-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, #1f1f30, #141422);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+#start-menu h1 {
+    color: #d4bfff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px #9370db;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.game-btn {
+    padding: 18px 40px;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 60px;
+    background: #5f4bb6;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #372e68;
+    transition: 0.1s ease;
+    width: 80%;
+    max-width: 280px;
+    margin: 10px 0;
+}
+
+.game-btn:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 #372e68;
+}
+
+#next-button {
+    margin-top: 20px;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+}
